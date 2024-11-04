@@ -7,6 +7,9 @@ const CartContainer = styled.div`
     color: #ffffff;
 `;
 
+const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+
+
 function CartPage() {
     const cartItems = useSelector((state) => state.cart.cartItems);
 
@@ -21,6 +24,8 @@ function CartPage() {
                         <h2>{item.name}</h2>
                         <p>Harga: Rp {item.price}</p>
                         <p>Jumlah: 1</p>
+                        <button onClick={() => dispatch(removeFromCart(item.id))}>Hapus</button>
+                        <p>Total Harga: Rp {totalPrice}</p>
                     </div>
                 ))
             )}

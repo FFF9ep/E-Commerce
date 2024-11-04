@@ -15,13 +15,12 @@ function CheckoutPage() {
     const handleCheckout = async () => {
         try {
             await axios.post('/checkout');
-            alert('Checkout berhasil!');
-            // Jika Anda menggunakan Redux, Anda bisa menambahkan action untuk membersihkan keranjang setelah checkout
+            alert('Checkout berhasil! Pesanan Anda telah dikonfirmasi.');
         } catch (error) {
             console.error('Error during checkout', error);
             alert('Checkout gagal. Silakan coba lagi.');
         }
-    };
+    };    
 
     return (
         <CheckoutContainer>

@@ -39,6 +39,7 @@ function HomePage() {
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
+        alert(`${product.name} berhasil ditambahkan ke keranjang!`);
     };
 
     return (

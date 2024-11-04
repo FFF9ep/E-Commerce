@@ -4,3 +4,10 @@ export const addToCart = (product) => (dispatch) => {
         payload: product,
     });
 };
+
+export const removeFromCart = (productId) => (dispatch) => {
+    dispatch({
+        type: 'REMOVE_FROM_CART',
+        payload: productId,
+    });
+};
