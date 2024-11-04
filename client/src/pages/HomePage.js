@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../axios';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/actions/cartActions';
+import { Link } from 'react-router-dom';
 
 const ProductContainer = styled.div`
     display: grid;
@@ -20,6 +23,7 @@ const ProductCard = styled.div`
 
 function HomePage() {
     const [products, setProducts] = useState([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -34,16 +38,17 @@ function HomePage() {
     }, []);
 
     const handleAddToCart = (product) => {
-        // Logika menambahkan produk ke keranjang, bisa menggunakan Redux atau Context API
-        console.log(`Menambahkan ${product.name} ke keranjang`);
-        // Tambahkan logika Redux/Context API di sini
+        dispatch(addToCart(product));
     };
 
     return (
         <div>
             <h1>Daftar Produk</h1>
+            <Link to="/cart">
+                <button>Lihat Keranjang</button>
+            </Link>
             <ProductContainer>
-                {products.map(product => (
+                {products.map((product) => (
                     <ProductCard key={product.id}>
                         <h2>{product.name}</h2>
                         <p>{product.description}</p>

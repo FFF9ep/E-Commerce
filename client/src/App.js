@@ -7,6 +7,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { darkTheme } from './theme';
 import HomePage from './pages/HomePage';
+import CartPage from './pages/CartPage';
 
 const GlobalStyle = createGlobalStyle`
     body {
